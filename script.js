@@ -1,107 +1,124 @@
+console.log("Hii")
+
 // NaN
 
-let probablyNaN = parseInt("HII")
-let notNaN = parseInt("7") // prints "7"
-console.log(probablyNaN) // prints " NaN"
+Number.NaN // NaN
+NaN // NaN
 
-// Null and Undefined
+let a = 10 / "Hello"
 
-// Null
+let b = 0 / 0
 
-let myName = null; // Explicitly assigning null
-console.log(myName); // Output: null
+let c = parseInt("Hii")
 
-// Checking type using typeof
-console.log(typeof myName); // Output: object
+let d = parseInt("HHHH")
 
-// Checking if it's falsy
-if (!myName) {
-  console.log("userName is falsy"); // This will be printed
+isNaN(a) // true
+
+Number.isNaN(a) // true
+
+// Null and undefined
+let maybeNull = null
+
+console.log(typeof a)
+
+let maybeUndefined;
+
+console.log(b)
+
+let newCVariable  =null;
+
+console.loh(viii)
+
+// Values vs Refernece
+
+let newInt = 10;
+let newestInt = newInt;
+
+newInt = 20;
+
+console.log(newInt,newestInt)
+
+let sayHii = "hii"
+
+let e = d;
+
+e = "hello"
+
+console.log(d,e)
+
+let arr1 = [1,2,3,4,5]
+let arr2 = arr1;
+
+arr1.push(6)
+
+console.log(arr1,arr2)
+
+let obj1 = {
+    name: "Hii",
+    age: 20
 }
 
-// Undefined
-let userAge;
-console.log(userAge); // Output: undefined
+let obj2 = obj1;
 
-// Checking type using typeof
-console.log(typeof userAge); // Output: undefined
+obj1.name = "Hello"
 
-// Checking if it's falsy
-if (!userAge) {
-  console.log("userAge is falsy"); // This will be printed
+console.log(obj1,obj2)
+
+//  Immutable objects and prototypes
+
+let obj1 = Object.freeze({
+    name: "Hii",
+    age: 20
+})
+
+obj1.age = 30
+
+console.log(obj1)
+
+let ob2 = JSON.parse(JSON.stringify(obj1))
+
+let obj3 = Object.assign({},obj1)
+
+obj3.age = 30
+
+console.log(obj1,obj3)
+
+let obj4 = {}
+
+for (let keys in obj1){
+    obj4[keys] = obj1[keys]
 }
 
+obj4.age = 30
 
+console.log(obj1,obj4, "Hii")
 
-// Values vs References
+let obj5 = {...obj1}
 
-// Primitive values
-let num1 = 10;
-let num2 = num1; // Copying the value
-num2 = 20; // Modifying num2 doesn't affect num1
-console.log(num1); // Output: 10
-console.log(num2); // Output: 20
+obj5.age = 30
 
-let str1 = "Hello";
-let str2 = str1; // Copying the value
-str2 = "Hi"; // Modifying str2 doesn't affect str1
-console.log(str1); // Output: "Hello"
-console.log(str2); // Output: "Hi"
+console.log(obj1,obj5)
 
-// Reference values
-
-let arr1 = [1, 2, 3];
-let arr2 = arr1; // Copying the reference
-arr2.push(4); // Modifying arr2 affects arr1
-console.log(arr1); // Output: [1, 2, 3, 4]
-console.log(arr2); // Output: [1, 2, 3, 4]
-
-
-let obj1 = { name: "Alice" };
-let obj2 = obj1; // Copying the reference
-obj2.name = "Bob"; // Modifying obj2 affects obj1
-console.log(obj1.name); // Output: "Bob"
-console.log(obj2.name); // Output: "Bob"
-
-
-// Immutabe objects and prototypes
-
-// Immutable objects
-
-const person = Object.freeze({ name: "Alice", age: 30 });
-person.age = 31; // This assignment will have no effect
-console.log(person.age); // Output: 30
-
-// Prototypes
-
-function Person(name) {
+function Person(name,age){
     this.name = name;
-  }
-  
-  Person.prototype.sayHello = function () {
-    console.log(`Hello, my name is ${this.name}`);
-  };
-  
-  const person1 = new Person("Alice");
-  person1.sayHello(); // Output: "Hello, my name is Alice"
+    this.age = age;
+}
 
-  
-// Number vs Bigint
+Person.prototype.getName = function(){
+    return this.name
+}
 
-// Number
+let p1 = new Person("Tarun",20)
 
-console.log(typeof 1); // Output: number
-let num = 9007199254740991;
+console.log(p1.getName())
 
-console.log(Number.MAX_SAFE_INTEGER); // Output: 9007199254740991
-console.log(Number.MAX_SAFE_INTEGER + 1); // Output: 9007199254740992
+// Bigint vs number
 
+let simpleInt = 10
 
-// BigInt
+let longInt = 10000000
 
-console.log(typeof 1n); // Output: bigint
-console.log(typeof BigInt(1)); // Output: bigint
-console.log(1n === BigInt(1)); // Output: true
+console.log(Number.MAX_SAFE_INTEGER)
 
-let bigNum = 9007199254740991n;
-
+let newBigInt = 24903904290349238492890424n;
